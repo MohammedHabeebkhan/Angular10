@@ -1,0 +1,47 @@
+<mat-card class="form-style">
+  <mat-card-title> Add New User </mat-card-title>
+  <form [formGroup]="addUserForm" (submit)="createUser()" class="form-controls">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>User Name</mat-label>
+        <input matInput placeholder="User Name" formControlName="username" />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-error *ngIf="addUserForm.controls['']">Name is Required</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>EmailId</mat-label>
+        <input matInput placeholder="EmailId" formControlName="email" />
+        <mat-icon matSuffix>mail</mat-icon>
+        <mat-error *ngIf="addUserForm.controls['email'].errors && addUserForm.controls['email'].hasError('required')">
+          Email Address is Required</mat-error>
+        <mat-error *ngIf="addUserForm.controls['email'].errors && addUserForm.controls['email'].hasError('email')">Email
+          Address is not Valid</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Phone No</mat-label>
+        <input matInput placeholder="Phone No" formControlName="phone" />
+        <mat-icon matSuffix>phone</mat-icon>
+        <mat-error *ngIf="addUserForm.controls['phone'].errors && addUserForm.controls['phone'].hasError('required')">
+          Number Required
+        </mat-error>
+        <mat-error *ngIf="addUserForm.controls['phone'].errors && addUserForm.controls['phone'].hasError('maxlength')">
+          Number should be 10 digits
+        </mat-error>
+      </mat-form-field>
+    </p>
+    <div>
+      <button mat-raised-button color="primary" [disabled]="!addUserForm.valid">
+        Create
+      </button>
+    </div>
+  </form>
+</mat-card>
+<div>
+  <mat-drawer-content class="spinner_overlay" *ngIf="pageLoad">
+    <mat-spinner class="spinner"></mat-spinner>
+  </mat-drawer-content>
+</div>

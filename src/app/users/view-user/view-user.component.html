@@ -1,0 +1,9 @@
+<mat-card *ngIf="userDetails" class="user-details">
+  <mat-card-title>{{ userDetails.name }} </mat-card-title>
+  <mat-card-content>{{ userDetails.email }}</mat-card-content>
+</mat-card>
+<div>
+  <mat-drawer-content class="spinner_overlay" *ngIf="pageLoad">
+    <mat-spinner class="spinner"></mat-spinner>
+  </mat-drawer-content>
+</div>

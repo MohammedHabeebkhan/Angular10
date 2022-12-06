@@ -1,0 +1,18 @@
+.list-style {
+  font-family: "Times New Roman";
+  list-style: none;
+  text-decoration: none;
+  color: gray;
+  font-size: 18px;
+  margin-top: 165px;
+}
+
+.list-style:hover {
+  transition: 200ms;
+  color: black;
+  font-size: 21px;
+}
+.mat-icon {
+  padding-top: 1px;
+  font-size: 20px;
+}
